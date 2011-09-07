@@ -1,6 +1,9 @@
 CenterCut
 =========
 
+Description
+-----------
+
 CenterCut is a [Cinema 4D](http://www.maxon.net) script that
 toggles the center-cut safe zones in 16:9 viewers.
 This python script will show where cropping will

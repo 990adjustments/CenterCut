@@ -28,22 +28,28 @@ def main():
     if bd is None:
         return
 
-    if bd[c4d.BASEDRAW_DATA_TITLESAFE_CENTER] == 1:
+    if bd[c4d.BASEDRAW_DATA_SHOWSAFEFRAME] == 1:
+        bd[c4d.BASEDRAW_DATA_SHOWSAFEFRAME] = 0
+        bd[c4d.BASEDRAW_DATA_RENDERSAFE] = 0
+        bd[c4d.BASEDRAW_DATA_TITLESAFE] = 0
+        bd[c4d.BASEDRAW_DATA_ACTIONSAFE] = 0
+        bd[c4d.BASEDRAW_DATA_TINTBORDER] = 0
+        bd[c4d.BASEDRAW_DATA_TINTBORDER_OPACITY] = 0.1
+        bd[c4d.BASEDRAW_DATA_RENDERSAFE_CENTER] = 0
         bd[c4d.BASEDRAW_DATA_TITLESAFE_CENTER] = 0
-    else:
-        bd[c4d.BASEDRAW_DATA_TITLESAFE_CENTER] = 1
-
-    if bd[c4d.BASEDRAW_DATA_ACTIONSAFE_CENTER] == 1:
         bd[c4d.BASEDRAW_DATA_ACTIONSAFE_CENTER] = 0
     else:
+        bd[c4d.BASEDRAW_DATA_SHOWSAFEFRAME] = 1
+        bd[c4d.BASEDRAW_DATA_RENDERSAFE] = 1
+        bd[c4d.BASEDRAW_DATA_TITLESAFE] = 1
+        bd[c4d.BASEDRAW_DATA_ACTIONSAFE] = 1
+        bd[c4d.BASEDRAW_DATA_TINTBORDER] = 1
+        bd[c4d.BASEDRAW_DATA_TINTBORDER_OPACITY] = 0.9
+        # Adjust tint color to taste
+        bd[c4d.BASEDRAW_DATA_TINTBORDER_COLOR] = c4d.Vector(0.0, 0.0, 0.0)
+        bd[c4d.BASEDRAW_DATA_RENDERSAFE_CENTER] = 1
+        bd[c4d.BASEDRAW_DATA_TITLESAFE_CENTER] = 1
         bd[c4d.BASEDRAW_DATA_ACTIONSAFE_CENTER] = 1
-
-    #Uncomment the next line to change border color to taste. 
-    #bd[c4d.BASEDRAW_DATA_TINTBORDER_COLOR] = c4d.Vector(0.0, 0.0, 0.0) 
-    if bd.GetParameterData(c4d.BASEDRAW_DATA_TINTBORDER_OPACITY) == 0.9:
-        bd[c4d.BASEDRAW_DATA_TINTBORDER_OPACITY] = 0.1
-    else:
-        bd[c4d.BASEDRAW_DATA_TINTBORDER_OPACITY] = 0.9;
 
     c4d.EventAdd()
 
